@@ -49,3 +49,10 @@ public/profile.jpg
 DSC00041.JPG
 newimg.jpeg
 profile.jpg
+
+# private agents & workspace config files
+.agents/
+AGENTS.md
+CLAUDE.md
+CONTEXT.md
+docs/CONTEXT.md
