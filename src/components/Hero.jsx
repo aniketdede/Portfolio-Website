@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function Hero({ onOpenContact }) {
   const [timeStr, setTimeStr] = useState("");
 
@@ -66,11 +68,11 @@ export default function Hero({ onOpenContact }) {
         </div>
       </div>
 
-      {/* HERO FEATURED IMAGE RESTORED TO PERFECT FITTING ASPECT RATIO */}
+      {/* HERO FEATURED IMAGE */}
       <div className="picture w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] mt-6 rounded-3xl overflow-hidden shadow-2xl relative group bg-[#0e0e11] border border-black/10">
         <img
           className="w-full h-full object-cover object-[65%_25%] sm:object-[68%_20%] filter brightness-[1.02] contrast-[1.04] saturate-[1.04] group-hover:scale-103 transition-all duration-700 ease-out"
-          src="/newimg.png"
+          src={`${basePath}/newimg.png`}
           alt="Aniket Vikas Dede"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />

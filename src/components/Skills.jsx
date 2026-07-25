@@ -1,5 +1,7 @@
 "use client";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function Skills({ activeSkillFilter, onSelectSkill }) {
   const skillCategories = [
     {
@@ -37,7 +39,7 @@ export default function Skills({ activeSkillFilter, onSelectSkill }) {
   return (
     <section id="skills" className="w-full relative px-6 md:px-[4rem] py-20 mt-10">
       <div className="w-full relative rounded-3xl overflow-hidden bg-black text-white p-8 md:p-16 shadow-2xl">
-        <img className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none" src="/bgdots.png" alt="" />
+        <img className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none" src={`${basePath}/bgdots.png`} alt="" />
 
         <div className="relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12 border-b border-white/20 pb-8">
@@ -58,15 +60,15 @@ export default function Skills({ activeSkillFilter, onSelectSkill }) {
                 Clear Filter: {activeSkillFilter} &times;
               </button>
             )}
-            <img src="/tech.png" alt="Tech Stack" className="h-10 md:h-12 object-contain opacity-90 hidden md:block" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skillCategories.map((cat) => (
-              <div key={cat.title} className="dark-card p-6 rounded-2xl">
-                <h3 className="text-xl font-bold font-heading mb-4 text-emerald-400 flex items-center gap-2">
-                  <span>{cat.icon}</span> {cat.title}
-                </h3>
+              <div key={cat.title} className="glass-card p-6 rounded-2xl border border-white/10 hover:border-white/20 transition-colors">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-xl px-2.5 py-1 bg-white/10 rounded-lg">{cat.icon}</span>
+                  <h3 className="text-xl font-bold font-heading text-white">{cat.title}</h3>
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {cat.items.map((item) => {
                     const isSelected = activeSkillFilter === item;
@@ -74,10 +76,10 @@ export default function Skills({ activeSkillFilter, onSelectSkill }) {
                       <button
                         key={item}
                         onClick={() => onSelectSkill(isSelected ? null : item)}
-                        className={`px-3 py-1.5 rounded-lg text-sm font-semibold transition-all cursor-pointer ${
+                        className={`text-xs font-medium px-3 py-1.5 rounded-full transition-all cursor-pointer ${
                           isSelected
-                            ? "bg-emerald-500 text-black font-bold scale-105 shadow-md"
-                            : "bg-white/10 hover:bg-white/25 text-white"
+                            ? "bg-emerald-400 text-black font-bold scale-105"
+                            : "bg-white/10 text-zinc-300 hover:bg-white/20 hover:text-white"
                         }`}
                       >
                         {item}

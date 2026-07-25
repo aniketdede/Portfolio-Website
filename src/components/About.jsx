@@ -1,12 +1,16 @@
+"use client";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function About() {
   return (
     <section id="about" className="w-full px-6 md:px-10 py-24 mt-10 flex justify-center items-center relative">
       <div className="relative text-center w-full max-w-4xl px-4">
         {/* Floating Visual Badges */}
-        <img className="absolute -right-4 -top-12 w-14 h-14 md:w-16 md:h-16 animate-float hidden sm:block" src="/image1.png" alt="Icon" />
-        <img className="absolute right-12 -bottom-10 w-16 h-16 md:w-20 md:h-20 animate-float-delayed hidden sm:block" src="/image.png" alt="Icon" />
-        <img className="absolute -bottom-16 left-12 w-16 h-16 md:w-20 md:h-20 animate-float hidden sm:block" src="/js.png" alt="JS Icon" />
-        <img className="absolute -left-6 top-8 w-16 h-16 md:w-20 md:h-20 animate-float-delayed hidden sm:block" src="/vs.png" alt="VS Icon" />
+        <img className="absolute -right-4 -top-12 w-14 h-14 md:w-16 md:h-16 animate-float hidden sm:block" src={`${basePath}/image1.png`} alt="Icon" />
+        <img className="absolute right-12 -bottom-10 w-16 h-16 md:w-20 md:h-20 animate-float-delayed hidden sm:block" src={`${basePath}/image.png`} alt="Icon" />
+        <img className="absolute -bottom-16 left-12 w-16 h-16 md:w-20 md:h-20 animate-float hidden sm:block" src={`${basePath}/js.png`} alt="JS Icon" />
+        <img className="absolute -left-6 top-8 w-16 h-16 md:w-20 md:h-20 animate-float-delayed hidden sm:block" src={`${basePath}/vs.png`} alt="VS Icon" />
 
         <span className="text-xs md:text-sm font-bold uppercase tracking-widest text-zinc-400 block mb-3">[ Professional Summary ]</span>
         <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter mb-8 font-heading text-black leading-tight">

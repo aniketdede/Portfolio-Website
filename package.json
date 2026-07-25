@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "next build && gh-pages -d out -b gh-pages"
+    "deploy:portfolio": "npx cross-env NEXT_PUBLIC_BASE_PATH=/Portfolio-Website next build && node -e \"require('fs').writeFileSync('out/.nojekyll', '')\" && gh-pages --dotfiles -d out -b gh-pages -r https://github.com/aniketdede/Portfolio-Website.git",
+    "deploy:webdev": "npx cross-env NEXT_PUBLIC_BASE_PATH=/WEB-DEVELOPEMENT next build && node -e \"require('fs').writeFileSync('out/.nojekyll', '')\" && gh-pages --dotfiles -d out -b gh-pages -r https://github.com/aniketdede/WEB-DEVELOPEMENT.git",
+    "deploy": "npm run deploy:portfolio && npm run deploy:webdev"
   },
   "dependencies": {
     "next": "16.2.11",
@@ -16,6 +18,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "cross-env": "^7.0.3",
     "eslint": "^9",
     "eslint-config-next": "16.2.11",
     "gh-pages": "^6.3.0",

@@ -3,6 +3,8 @@
 import { useState, useCallback } from "react";
 import ProjectModal from "./ProjectModal";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 const projectData = {
   garagenet: {
     title: "GarageNET",
@@ -99,7 +101,7 @@ export default function Projects({ activeSkillFilter }) {
           <h1 className="text-5xl sm:text-7xl md:text-[7rem] tracking-tight font-extrabold font-heading text-black">
             Projects
           </h1>
-          <img className="w-16 md:w-28 object-contain" src="/arrow.png" alt="Arrow" />
+          <img className="w-16 md:w-28 object-contain" src={`${basePath}/arrow.png`} alt="Arrow" />
           <h1 className="text-5xl sm:text-7xl md:text-[7rem] tracking-tight font-extrabold font-heading text-zinc-400">
             Showcase
           </h1>
@@ -219,7 +221,7 @@ export default function Projects({ activeSkillFilter }) {
                 >
                   <img
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    src={project.image}
+                    src={`${basePath}${project.image}`}
                     alt={project.title}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
