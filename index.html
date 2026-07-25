@@ -4,212 +4,1000 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PORTFOLIO</title>
+    <meta name="description" content="Portfolio of Aniket Vikas Dede - Full Stack Developer, Software Engineer, B.E. IT Student at Trinity College of Engineering, Pune. Developer of GarageNET and GitaKosh.">
+    <title>Aniket Dede | Full Stack Web Developer & Software Engineer</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
 
-<body>
-    <main class="w-full py-5 font-[Helvetica_Now_Display]">
-        <nav class="flex px-[4rem] justify-between items-center">
-            <h1 class="text-xl font-medium">Portfolio</h1>
-            <div class="links flex gap-4">
+<body class="bg-[#fbfbfb] text-[#0d0d0d] font-['Plus_Jakarta_Sans',sans-serif]">
+    <main class="w-full py-5">
+        <!-- NAVIGATION BAR -->
+        <nav class="fixed top-0 left-0 w-full z-50 bg-white/85 backdrop-blur-md border-b border-black/5 px-6 md:px-[4rem] py-4 flex justify-between items-center transition-all duration-300">
+            <a href="#home" class="text-2xl font-bold tracking-tighter font-heading hover:opacity-75 transition-opacity">
+                Aniket<span class="text-zinc-400">.</span>
+            </a>
+            
+            <div class="links hidden md:flex items-center gap-8">
+                <a class="nav-link font-medium text-base text-zinc-500 hover:text-black transition-colors" href="#home">Home</a>
+                <a class="nav-link font-medium text-base text-zinc-500 hover:text-black transition-colors" href="#about">About</a>
+                <a class="nav-link font-medium text-base text-zinc-500 hover:text-black transition-colors" href="#experience">Experience</a>
+                <a class="nav-link font-medium text-base text-zinc-500 hover:text-black transition-colors" href="#projects">Projects</a>
+                <a class="nav-link font-medium text-base text-zinc-500 hover:text-black transition-colors" href="#skills">Skills</a>
+                <a class="nav-link font-medium text-base text-zinc-500 hover:text-black transition-colors" href="#certifications">Certifications</a>
+                <a class="nav-link font-medium text-base text-zinc-500 hover:text-black transition-colors" href="#docs">Resume</a>
+            </div>
 
-                <a class="
-                font-medium text-xl " href="#">Home</a>
-                <a class="
-                font-medium text-xl opacity-60" href="#">About </a>
-                <a class="
-                font-medium text-xl opacity-60" href="#">Contact</a>
-                <a class="
-                font-medium text-xl opacity-60" href="#">WorkTogether</a>
+            <div class="flex items-center gap-4">
+                <button onclick="openContactModal()" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-black text-white text-sm font-semibold hover:bg-zinc-800 transition-colors shadow-sm cursor-pointer">
+                    Work Together
+                </button>
+                <a href="https://github.com/aniketdede" target="_blank" rel="noopener noreferrer" class="p-2 text-zinc-700 hover:text-black transition-colors" title="GitHub Profile">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                </a>
             </div>
         </nav>
-        <section class="w-full mt-20 px-[4rem] flex justify-between items-end  ">
-            <div class="Leftheadings">
-                <h6 class="text-2xl font-bold -mb-4 tracking-tighter"> Hello I Am </h6>
-                <h1 class="text-[12rem] leading-none font-bold  tracking-tightest"> Aniket. </h1>
 
+        <!-- HERO SECTION -->
+        <section id="home" class="w-full mt-28 pt-8 px-6 md:px-[4rem] flex flex-col justify-between reveal-on-scroll">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-6">
+                <div class="Leftheadings">
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 pulse-dot"></span>
+                        <h6 class="text-lg md:text-xl font-bold tracking-tight text-zinc-600">Hello, I Am</h6>
+                    </div>
+                    <h1 class="text-6xl sm:text-8xl md:text-[10rem] lg:text-[11rem] leading-none font-extrabold tracking-tighter font-heading text-black">
+                        Aniket<span class="text-zinc-400">.</span>
+                    </h1>
+                </div>
 
+                <div class="Rightheadings flex flex-col gap-3 py-2 border-l-2 border-black pl-5 md:pl-6">
+                    <div class="flex items-center gap-3">
+                        <h4 class="tracking-tight font-bold text-sm md:text-base">[ <span class="timing text-emerald-600">06:11 PM</span> ]</h4>
+                        <div class="w-16 md:w-24 h-[2px] bg-black"></div>
+                        <span class="text-xs uppercase font-bold tracking-wider px-2 py-0.5 bg-zinc-200 rounded">Pune, India</span>
+                    </div>
+                    <h3 class="tracking-tight font-bold text-xl md:text-2xl font-heading text-zinc-900">
+                        Full Stack Web Developer & Software Engineer
+                    </h3>
+                    <p class="text-zinc-600 text-sm max-w-md">
+                        Specialized in building scalable B2B SaaS platforms, AI-integrated web apps, and high-performance APIs with Next.js, React, Node.js & Django.
+                    </p>
+                    <div class="flex flex-wrap items-center gap-3 pt-2">
+                        <a href="#projects" class="px-5 py-2.5 bg-black text-white text-xs md:text-sm font-bold tracking-wider uppercase rounded-full hover:bg-zinc-800 transition-colors">
+                            Explore Projects &rarr;
+                        </a>
+                        <button onclick="openContactModal()" class="px-5 py-2.5 bg-zinc-200 text-zinc-900 text-xs md:text-sm font-bold tracking-wider uppercase rounded-full hover:bg-zinc-300 transition-colors cursor-pointer">
+                            Contact Me
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div class="Rightheadings flex gap-3 items-center py-5">
-                <h4 class="tracking-tighter font-bold">[ <span class="timing">06:11 PM</span> ]
-                    <div class="w-32 h-[0.1px] bg-black "> </div>
-                    <h3 class="tracking-tighter font-bold">Creative Front End Developer</h3>
 
+            <!-- HERO FEATURED IMAGE -->
+            <div class="picture w-full h-[28rem] md:h-[42rem] mt-6 rounded-2xl overflow-hidden shadow-2xl relative group">
+                <img class="w-full h-full object-cover object-[10%_19%] filter contrast-[1.03] grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="DSC00041.JPG" alt="Aniket Vikas Dede">
+                <div class="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 pointer-events-none">
+                    <div class="bg-black/75 backdrop-blur-md px-6 py-4 rounded-xl border border-white/20 text-white max-w-md pointer-events-auto">
+                        <span class="text-xs text-emerald-400 font-bold uppercase tracking-wider block mb-1">Current Focus</span>
+                        <p class="text-sm font-medium"> Final Year B.E. IT Student at Trinity College of Engineering, Pune (SPPU).</p>
+                    </div>
+                    <div class="flex gap-2 pointer-events-auto">
+                        <span class="px-4 py-2 bg-white/90 backdrop-blur-md rounded-lg text-xs font-bold uppercase tracking-wider text-black shadow">Django</span>
+                        <span class="px-4 py-2 bg-white/90 backdrop-blur-md rounded-lg text-xs font-bold uppercase tracking-wider text-black shadow">React</span>
+                        <span class="px-4 py-2 bg-white/90 backdrop-blur-md rounded-lg text-xs font-bold uppercase tracking-wider text-black shadow">Next.js</span>
+                        <span class="px-4 py-2 bg-white/90 backdrop-blur-md rounded-lg text-xs font-bold uppercase tracking-wider text-black shadow">Node.js</span>
+                    </div>
+                </div>
             </div>
         </section>
-        <section class="picture w-full px-[4rem] h-[45rem] mt-10">
-            <img class="w-full h-full object-cover object-[10%_19%] " src="DSC00041.JPG" alt="">
-        </section>
-        <section class="about w-full px-10 py-20 mt-30 flex justify-center items-center">
-            <div class=" relative bg-red-0 text-center w-3/5 h-35">
-                <img class="absolute right-0 bottom-30 w-12 h-12" src="image1.png" alt="">
-                <img class="absolute  right-20 -bottom-20 w-15 h-15" src="image.png" alt="">
-                <img class="absolute -bottom-25 left-40 w-15 h-15" src="js.png" alt="">
-                <img class="absolute -left-10 bottom-30 w-15 h-15" src="vs.png" alt="">
-                <h1 class="text-6xl font-bold tracking-tighter mb-5">[ I Design & Experiences ]</h1>
-                <p class="text-xl font-bold tracking-tighter">"I am a web developer with experience in designing and
-                    building user-friendly, efficient websites. I have worked on projects like a Library Management
-                    System, focusing on both frontend and backend development to create scalable solutions."
+
+        <!-- ABOUT & SUMMARY SECTION -->
+        <section id="about" class="w-full px-6 md:px-10 py-24 mt-10 flex justify-center items-center relative reveal-on-scroll">
+            <div class="relative text-center w-full max-w-4xl px-4">
+                <!-- Floating Visual Badges -->
+                <img class="absolute -right-4 -top-12 w-14 h-14 md:w-16 md:h-16 animate-float hidden sm:block" src="image1.png" alt="Icon">
+                <img class="absolute right-12 -bottom-10 w-16 h-16 md:w-20 md:h-20 animate-float-delayed hidden sm:block" src="image.png" alt="Icon">
+                <img class="absolute -bottom-16 left-12 w-16 h-16 md:w-20 md:h-20 animate-float hidden sm:block" src="js.png" alt="JS Icon">
+                <img class="absolute -left-6 top-8 w-16 h-16 md:w-20 md:h-20 animate-float-delayed hidden sm:block" src="vs.png" alt="VS Icon">
+
+                <span class="text-xs md:text-sm font-bold uppercase tracking-widest text-zinc-400 block mb-3">[ Professional Summary ]</span>
+                <h2 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tighter mb-8 font-heading text-black leading-tight">
+                    [ Architecting Production-Grade B2B SaaS & AI Experiences ]
+                </h2>
+                
+                <p class="text-base sm:text-xl font-medium tracking-tight text-zinc-700 leading-relaxed mb-8">
+                    "I am an IT undergraduate (Final Year) with hands-on full-stack development experience via the <strong class="text-black font-bold">EY GDS – AICTE Next-Gen Employability Internship</strong>. I specialize in building production-ready B2B platforms like <strong class="text-black font-bold">GarageNET</strong> and AI devotional platforms like <strong class="text-black font-bold">GitaKosh</strong> using Next.js, React, Node.js, and Django. Equipped with a strong foundation in Data Structures, System Design, REST APIs, and DevOps."
                 </p>
 
-            </div>
-
-
-        </section>
-        <section class="w-full relative px-[4rem]  py-15 mt-20">
-            <div class="w-full flex sticky bg-white z-[2] top-0 items-center gap-10 px-5 py-10 ">
-                <h1 class="text-7xl font-bold tracking-tighter">2017</h1>
-                <div class="w-70 h-[2px] bg-black"></div>
-                <h1 class="text-7xl font-bold text-zinc-400 tracking-tighter">The Beginning</h1>
-
-            </div>
-            <div class="imagecontent w-full gap-30 flex px-10 py-8">
-                <div class="col  flex flex-col gap-20 w-1/3">
-                    <div class=" w-70 h-100 bg-black opacity-10"></div>
-                    <div class=" w-70 h-90 bg-black opacity-10"></div>
-                    <div class=" w-70 h-100 bg-black opacity-10"></div>
-                </div>
-                <div class="col flex flex-col gap-20 pt-20 w-1/3">
-                    <div class=" w-70 h-80 bg-black opacity-10"></div>
-                    <div class=" w-70 h-100 bg-black opacity-10"></div>
-                    <div class=" w-70 h-100 bg-black opacity-10"></div>
-                </div>
-                <div class="col flex flex-col gap-20 pt-15 w-1/3">
-                    <div class=" w-70 h-100 bg-black opacity-10"></div>
-                    <div class=" w-70 h-80 bg-black opacity-10"></div>
-                    <div class=" w-70 h-100 bg-black opacity-10"></div>
-                </div>
-
-
-
-            </div>
-
-
-
-        </section>
-        <section class="w-full relative px-[4rem] py-15 mt-20">
-            <div class="w-full flex sticky bg-white z-[2] top-0 items-center gap-10 px-5 py-10 ">
-                <h1 class="text-7xl font-bold tracking-tighter">2018</h1>
-                <div class="w-70 h-[2px] bg-black"></div>
-                <h1 class="text-7xl font-bold text-zinc-400 tracking-tighter">Escalation</h1>
-
-            </div>
-            <div class="imagecontent w-full gap-30 flex px-10 py-8">
-                <div class="col  flex flex-col gap-20 w-1/3">
-                    <div class=" w-70 h-100 bg-black opacity-10"></div>
-                    <div class=" w-70 h-90 bg-black opacity-10"></div>
-                    <div class=" w-70 h-100 bg-black opacity-10"></div>
-                </div>
-                <div class="col flex flex-col gap-20 pt-20 w-1/3">
-                    <div class=" w-70 h-80 bg-black opacity-10"></div>
-                    <div class=" w-70 h-100 bg-black opacity-10"></div>
-                    <div class=" w-70 h-100 bg-black opacity-10"></div>
-                </div>
-                <div class="col flex flex-col gap-20 pt-15 w-1/3">
-                    <div class=" w-70 h-100 bg-black opacity-10"></div>
-                    <div class=" w-70 h-80 bg-black opacity-10"></div>
-                    <div class=" w-70 h-100 bg-black opacity-10"></div>
-                </div>
-
-
-
-            </div>
-
-
-
-        </section>
-        <section class="w-full relative">
-            <img class="w-full" src="bgdots.png" alt="">
-            <div class=" overlaytext absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
-                <h1 class="font-medium text-4xl mb-20 ml-60 "> I AM GREAT AT </h1>
-                <img src="tech.png" alt="">
-            </div>
-        </section>
-        <section class="testimonials px-[5rem] py-5 ">
-            <h3 class="text-5xl -mb-6 font-medium">Client</h3>
-            <div class="flex gap-10 items-center ">
-                <h1 class="text-[7rem] tracking-tight font-bold">Testimonials</h1>
-                <img class="object-cover" src="arrow.png" alt="">
-                <h1 class="text-[7rem] tracking-tight loading-none font-bold">Works</h1>
-            </div>
-            <div class="Workshowcase">
-                <div class="mt-15">
-                    <h3 class="text-4xl tracking-tight font-medium">Britannia</h3>
-                    <div class=" flex gap-4 mt-2">
-                        <h3 class="text-2xl font-medium ">2017</h3>
-                        <img class="w-20" src="arrow.png" alt="">
-                        <h3 class="text-2xl font-medium">Mumbai</h3>
+                <!-- STATS CARDS -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 text-left">
+                    <div class="glass-card p-5 rounded-xl">
+                        <h4 class="text-3xl md:text-4xl font-extrabold font-heading text-black">4+</h4>
+                        <p class="text-xs md:text-sm font-medium text-zinc-600 mt-1">Full-Stack Core Projects</p>
                     </div>
-                    <div class="w-full mt-3 h-80">
-                        <img class="w-full h-full object-cover object-[0%_10%] "
-                            src="https://images.unsplash.com/photo-1598839950984-034f6dc7b495?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt="">
+                    <div class="glass-card p-5 rounded-xl">
+                        <h4 class="text-3xl md:text-4xl font-extrabold font-heading text-black">60%</h4>
+                        <p class="text-xs md:text-sm font-medium text-zinc-600 mt-1">Efficiency Boost (GSearch AI)</p>
+                    </div>
+                    <div class="glass-card p-5 rounded-xl">
+                        <h4 class="text-3xl md:text-4xl font-extrabold font-heading text-black">96.4%</h4>
+                        <p class="text-xs md:text-sm font-medium text-zinc-600 mt-1">Academic Distinction (Class X)</p>
+                    </div>
+                    <div class="glass-card p-5 rounded-xl">
+                        <h4 class="text-3xl md:text-4xl font-extrabold font-heading text-black">3+</h4>
+                        <p class="text-xs md:text-sm font-medium text-zinc-600 mt-1">Professional Certifications</p>
                     </div>
                 </div>
-                <div class="flex justify-between mt-20">
-                    <div class=" w-150 py-5">
-                        <h3 class="text-4xl tracking-tight font-medium">Orange splash</h3>
-                        <div class=" flex gap-4 mt-2">
-                            <h3 class="text-2xl font-medium ">2020</h3>
-                            <img class="w-20" src="arrow.png" alt="">
-                            <h3 class="text-2xl font-medium">Paris</h3>
-                        </div>
-                        <div class="w-100 h-100 mt-2">
-                            <img class="w-full h-full object-cover object-[0%_80%] "
-                                src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt="">
-                        </div>
-                    </div>
-                    <div class="w-200 py-5 mt-30">
-                        <h3 class="text-4xl tracking-tight font-medium">Palm Jumerah</h3>
-                        <div class=" flex gap-4 mt-2">
-                            <h3 class="text-2xl font-medium ">2024</h3>
-                            <img class="w-20" src="arrow.png" alt="">
-                            <h3 class="text-2xl font-medium">Pune</h3>
-                        </div>
-                        <div class="w-200 h-110 mt-2">
-                            <img class="w-full h-full object-cover object-[0%_80%] "
-                                src="https://images.unsplash.com/photo-1596752837587-c75150cf66f7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                alt="">
-                        </div>
+            </div>
+        </section>
 
-                    </div>
-
-
-
-
-                </div>
-
+        <!-- EXPERIENCE & EDUCATION SECTION -->
+        <section id="experience" class="w-full relative px-6 md:px-[4rem] py-16 mt-10 reveal-on-scroll">
+            <div class="mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-2">[ Timeline & Journey ]</span>
+                <h2 class="text-4xl sm:text-6xl font-extrabold tracking-tighter font-heading text-black">
+                    Experience & Education
+                </h2>
             </div>
 
-        </section>
-        <section class="footer flex justify justify-between mt-20 px-[5rem]">
-            <h3 class="tracking-tight"><span class="font-bold">Aniket</span> Vikas Dede</h3>
-            <h4 class="font-medium dt">1 March 2025 [07:11 PM]</h4>
+            <!-- INTERNSHIP ITEM -->
+            <div class="mb-16">
+                <div class="w-full flex sticky bg-[#fbfbfb]/90 backdrop-blur-md z-10 top-20 items-center justify-between gap-6 px-4 py-6 border-b-2 border-black">
+                    <div class="flex items-center gap-6">
+                        <h3 class="text-3xl md:text-6xl font-extrabold tracking-tighter font-heading">2025 – 2026</h3>
+                        <div class="hidden sm:block w-32 h-[2px] bg-black"></div>
+                        <h4 class="text-xl md:text-3xl font-bold text-zinc-800 tracking-tight">Full Stack Web Development Intern</h4>
+                    </div>
+                    <span class="px-4 py-1.5 bg-black text-white text-xs font-bold uppercase tracking-wider rounded-full">EY GDS Program</span>
+                </div>
+
+                <div class="w-full px-4 md:px-8 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <div class="lg:col-span-4">
+                        <div class="glass-card p-6 rounded-2xl">
+                            <h4 class="text-xl font-bold font-heading text-black mb-1">EY GDS • Edunet Foundation & AICTE</h4>
+                            <p class="text-sm font-semibold text-zinc-500 mb-4">Next Gen Employability Program • Remote</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="badge-pill">Django</span>
+                                <span class="badge-pill">Python</span>
+                                <span class="badge-pill">Tailwind CSS</span>
+                                <span class="badge-pill">JWT Auth</span>
+                                <span class="badge-pill">Agile / Scrum</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-8 space-y-4">
+                        <div class="glass-card p-6 rounded-2xl">
+                            <h5 class="text-lg font-bold text-black mb-3">Key Highlights & Accomplishments:</h5>
+                            <ul class="space-y-3 text-zinc-700 text-sm md:text-base">
+                                <li class="flex items-start gap-3">
+                                    <span class="w-2 h-2 rounded-full bg-black mt-2 shrink-0"></span>
+                                    <span>Developed <strong class="text-black">GarageNET</strong>, a production-ready B2B SaaS platform for automotive service providers using Django and Python.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-2 h-2 rounded-full bg-black mt-2 shrink-0"></span>
+                                    <span>Engineered 4 core business modules: <strong class="text-black">Job Cards Management, Automated Billing</strong> (with real-time inventory deduction), <strong class="text-black">Inventory Management</strong> (Excel bulk import), and <strong class="text-black">AI-powered GSearch</strong>.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-2 h-2 rounded-full bg-black mt-2 shrink-0"></span>
+                                    <span>Implemented secure <strong class="text-black">JWT authentication</strong>, role-based access control (RBAC), and robust server-side form validation.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-2 h-2 rounded-full bg-black mt-2 shrink-0"></span>
+                                    <span>Collaborated in an Agile environment with regular sprint reviews, peer code reviews, and comprehensive system documentation.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EDUCATION ITEM -->
+            <div class="mb-16">
+                <div class="w-full flex sticky bg-[#fbfbfb]/90 backdrop-blur-md z-10 top-20 items-center justify-between gap-6 px-4 py-6 border-b-2 border-black">
+                    <div class="flex items-center gap-6">
+                        <h3 class="text-3xl md:text-6xl font-extrabold tracking-tighter font-heading">2023 – 2027</h3>
+                        <div class="hidden sm:block w-32 h-[2px] bg-black"></div>
+                        <h4 class="text-xl md:text-3xl font-bold text-zinc-800 tracking-tight">B.E. Information Technology</h4>
+                    </div>
+                    <span class="px-4 py-1.5 bg-zinc-200 text-zinc-900 text-xs font-bold uppercase tracking-wider rounded-full">Degree Program</span>
+                </div>
+
+                <div class="w-full px-4 md:px-8 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <div class="lg:col-span-4">
+                        <div class="glass-card p-6 rounded-2xl">
+                            <h4 class="text-xl font-bold font-heading text-black mb-1">Trinity College of Engineering & Research</h4>
+                            <p class="text-sm font-semibold text-zinc-500 mb-2">Pune (SPPU - Savitribai Phule Pune University)</p>
+                            <span class="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-md">Final Year (B.E.)</span>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-8">
+                        <div class="glass-card p-6 rounded-2xl">
+                            <h5 class="text-lg font-bold text-black mb-3">Academic Focus & Coursework:</h5>
+                            <p class="text-zinc-700 text-sm md:text-base leading-relaxed">
+                                Deep dive into Data Structures & Algorithms, Object-Oriented Programming, Database Management Systems (DBMS), Operating Systems, Computer Networks, and Software Engineering principles. Hands-on capstone development and system architecture design.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACADEMIC MILESTONES -->
+            <div>
+                <div class="w-full flex sticky bg-[#fbfbfb]/90 backdrop-blur-md z-10 top-20 items-center justify-between gap-6 px-4 py-6 border-b-2 border-black">
+                    <div class="flex items-center gap-6">
+                        <h3 class="text-3xl md:text-6xl font-extrabold tracking-tighter font-heading">2020 – 2022</h3>
+                        <div class="hidden sm:block w-32 h-[2px] bg-black"></div>
+                        <h4 class="text-xl md:text-3xl font-bold text-zinc-800 tracking-tight">Secondary & Higher Secondary Education</h4>
+                    </div>
+                    <span class="px-4 py-1.5 bg-zinc-200 text-zinc-900 text-xs font-bold uppercase tracking-wider rounded-full">Schooling</span>
+                </div>
+
+                <div class="w-full px-4 md:px-8 py-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-lg font-bold text-black font-heading">Class XII (Science)</h4>
+                            <span class="text-xl font-extrabold font-heading text-black">65.00%</span>
+                        </div>
+                        <p class="text-sm text-zinc-600">Maharashtra State Board (2022)</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="flex justify-between items-center mb-2">
+                            <h4 class="text-lg font-bold text-black font-heading">Class X (SSC)</h4>
+                            <span class="text-xl font-extrabold font-heading text-emerald-600">96.40%</span>
+                        </div>
+                        <p class="text-sm text-zinc-600">Maharashtra State Board (2020) • Top Academic Distinction</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="w-full relative px-6 md:px-[4rem] py-20 mt-10 reveal-on-scroll">
+            <div class="w-full relative rounded-3xl overflow-hidden bg-black text-white p-8 md:p-16 shadow-2xl">
+                <img class="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none" src="bgdots.png" alt="">
+                
+                <div class="relative z-10">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12 border-b border-white/20 pb-8">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-2">[ Technical Competencies ]</span>
+                            <h2 class="text-4xl md:text-7xl font-extrabold tracking-tighter font-heading text-white">
+                                I Am Great At
+                            </h2>
+                        </div>
+                        <img src="tech.png" alt="Tech Stack" class="h-10 md:h-12 object-contain opacity-90">
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Languages -->
+                        <div class="dark-card p-6 rounded-2xl">
+                            <h3 class="text-xl font-bold font-heading mb-4 text-emerald-400 flex items-center gap-2">
+                                <span>&lt;/&gt;</span> Languages
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">JavaScript (ES6+)</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">Python</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">SQL</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">Java</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">HTML5 / CSS3</span>
+                            </div>
+                        </div>
+
+                        <!-- Frontend -->
+                        <div class="dark-card p-6 rounded-2xl">
+                            <h3 class="text-xl font-bold font-heading mb-4 text-emerald-400 flex items-center gap-2">
+                                <span>🎨</span> Frontend
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">React.js</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">Next.js</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">Tailwind CSS</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">Responsive Design</span>
+                            </div>
+                        </div>
+
+                        <!-- Backend -->
+                        <div class="dark-card p-6 rounded-2xl">
+                            <h3 class="text-xl font-bold font-heading mb-4 text-emerald-400 flex items-center gap-2">
+                                <span>⚙️</span> Backend
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">Node.js</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">Express.js</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">Django</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">REST APIs</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">JWT Authentication</span>
+                            </div>
+                        </div>
+
+                        <!-- Databases -->
+                        <div class="dark-card p-6 rounded-2xl">
+                            <h3 class="text-xl font-bold font-heading mb-4 text-emerald-400 flex items-center gap-2">
+                                <span>🗄️</span> Databases
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">MongoDB</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">MySQL</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">Database Design</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">MongoDB Atlas</span>
+                            </div>
+                        </div>
+
+                        <!-- DevOps & Tools -->
+                        <div class="dark-card p-6 rounded-2xl">
+                            <h3 class="text-xl font-bold font-heading mb-4 text-emerald-400 flex items-center gap-2">
+                                <span>🛠️</span> DevOps & Tools
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">Git</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">GitHub</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">Docker</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">Kubernetes</span>
+                            </div>
+                        </div>
+
+                        <!-- CS Fundamentals -->
+                        <div class="dark-card p-6 rounded-2xl">
+                            <h3 class="text-xl font-bold font-heading mb-4 text-emerald-400 flex items-center gap-2">
+                                <span>🧠</span> CS Fundamentals
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">DSA</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">OOP</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">System Design</span>
+                                <span class="px-3 py-1.5 bg-white/10 rounded-lg text-sm font-semibold">Computer Networks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SHOWCASE SECTION WITH CATEGORY FILTERS & MODALS -->
+        <section id="projects" class="testimonials px-6 md:px-[5rem] py-16 reveal-on-scroll">
+            <div class="mb-8">
+                <h3 class="text-3xl md:text-5xl -mb-2 md:-mb-4 font-medium tracking-tight text-zinc-500 font-heading">Featured Works</h3>
+                <div class="flex flex-wrap items-center gap-4 md:gap-8">
+                    <h1 class="text-5xl sm:text-7xl md:text-[7rem] tracking-tight font-extrabold font-heading text-black">
+                        Projects
+                    </h1>
+                    <img class="w-16 md:w-28 object-contain" src="arrow.png" alt="Arrow">
+                    <h1 class="text-5xl sm:text-7xl md:text-[7rem] tracking-tight font-extrabold font-heading text-zinc-400">
+                        Showcase
+                    </h1>
+                </div>
+            </div>
+
+            <!-- CATEGORY FILTER TABS -->
+            <div class="flex flex-wrap items-center gap-3 mb-12">
+                <button onclick="filterProjects('all', this)" class="filter-btn active-filter">All Projects</button>
+                <button onclick="filterProjects('b2b', this)" class="filter-btn">B2B & SaaS</button>
+                <button onclick="filterProjects('ai', this)" class="filter-btn">AI & ML</button>
+                <button onclick="filterProjects('web', this)" class="filter-btn">Web Apps</button>
+            </div>
+
+            <!-- PROJECTS LIST -->
+            <div class="space-y-16">
+                <!-- Project 1: GarageNET -->
+                <div class="project-card glass-card p-8 md:p-12 rounded-3xl border border-black/10 transition-all duration-300" data-category="b2b">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7 space-y-6">
+                            <div class="flex items-center gap-3">
+                                <span class="px-3 py-1 bg-black text-white text-xs font-bold uppercase tracking-wider rounded-full">B2B SaaS</span>
+                                <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full">Production Ready</span>
+                            </div>
+                            
+                            <h3 class="text-3xl sm:text-5xl font-extrabold font-heading text-black tracking-tight">GarageNET</h3>
+                            
+                            <p class="text-base md:text-lg text-zinc-700 leading-relaxed font-medium">
+                                Full-stack B2B SaaS platform engineered for complete automotive garage operations management. Integrates 4 core modules to digitize job cards, inventory, billing, and AI parts sourcing.
+                            </p>
+
+                            <div class="space-y-3 pt-2">
+                                <div class="flex items-start gap-3">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 mt-2 shrink-0"></span>
+                                    <p class="text-sm text-zinc-700"><strong class="text-black">Automated Billing Engine:</strong> Real-time inventory deduction, audit trails, and Excel-based bulk data import.</p>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500 mt-2 shrink-0"></span>
+                                    <p class="text-sm text-zinc-700"><strong class="text-black">GSearch (AI Parts Finder):</strong> AI-assisted cross-garage parts sourcing finder that improved sourcing efficiency by 60%.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap items-center gap-4 pt-4">
+                                <button onclick="openProjectModal('garagenet')" class="px-6 py-3 bg-black text-white text-xs md:text-sm font-bold uppercase tracking-wider rounded-full hover:bg-zinc-800 transition-colors cursor-pointer">
+                                    View Full Architecture & Specs &rarr;
+                                </button>
+                                <span class="badge-pill">Django</span>
+                                <span class="badge-pill">Python</span>
+                                <span class="badge-pill">Tailwind CSS</span>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5">
+                            <div onclick="openProjectModal('garagenet')" class="w-full h-80 md:h-96 rounded-2xl overflow-hidden border border-black/10 shadow-lg relative group cursor-pointer">
+                                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1598839950984-034f6dc7b495?q=80&w=1974&auto=format&fit=crop" alt="GarageNET Preview">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                                    <div class="text-white">
+                                        <h4 class="text-lg font-bold">GarageNET Dashboard</h4>
+                                        <p class="text-xs text-zinc-300">Click to expand technical details</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: GitaKosh -->
+                <div class="project-card glass-card p-8 md:p-12 rounded-3xl border border-black/10 transition-all duration-300" data-category="ai">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-5 order-2 lg:order-1">
+                            <div onclick="openProjectModal('gitakosh')" class="w-full h-80 md:h-96 rounded-2xl overflow-hidden border border-black/10 shadow-lg relative group cursor-pointer">
+                                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?q=80&w=1974&auto=format&fit=crop" alt="GitaKosh Preview">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                                    <div class="text-white">
+                                        <h4 class="text-lg font-bold">GitaKosh AI App</h4>
+                                        <p class="text-xs text-zinc-300">Click to expand technical details</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7 space-y-6 order-1 lg:order-2">
+                            <div class="flex items-center gap-3">
+                                <span class="px-3 py-1 bg-black text-white text-xs font-bold uppercase tracking-wider rounded-full">AI Web App</span>
+                                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-bold rounded-full">Gemini API</span>
+                            </div>
+                            
+                            <h3 class="text-3xl sm:text-5xl font-extrabold font-heading text-black tracking-tight">GitaKosh</h3>
+                            
+                            <p class="text-base md:text-lg text-zinc-700 leading-relaxed font-medium">
+                                Full-stack Bhagavad Gita devotional learning platform featuring an AI chatbot powered by Google Gemini API for contextual Q&A and spiritual insights.
+                            </p>
+
+                            <div class="space-y-3 pt-2">
+                                <div class="flex items-start gap-3">
+                                    <span class="w-2 h-2 rounded-full bg-indigo-500 mt-2 shrink-0"></span>
+                                    <p class="text-sm text-zinc-700"><strong class="text-black">Data Pipeline:</strong> Cleaned and structured 700+ verses for fast ingestion and retrieval on MongoDB Atlas.</p>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span class="w-2 h-2 rounded-full bg-indigo-500 mt-2 shrink-0"></span>
+                                    <p class="text-sm text-zinc-700"><strong class="text-black">Gamification:</strong> Daily streaks, verse quizzes, and leaderboards designed to boost user retention.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap items-center gap-4 pt-4">
+                                <button onclick="openProjectModal('gitakosh')" class="px-6 py-3 bg-black text-white text-xs md:text-sm font-bold uppercase tracking-wider rounded-full hover:bg-zinc-800 transition-colors cursor-pointer">
+                                    View Full Architecture & Specs &rarr;
+                                </button>
+                                <span class="badge-pill">React.js</span>
+                                <span class="badge-pill">Node.js</span>
+                                <span class="badge-pill">MongoDB Atlas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: RoadRescue -->
+                <div class="project-card glass-card p-8 md:p-12 rounded-3xl border border-black/10 transition-all duration-300" data-category="web">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7 space-y-6">
+                            <div class="flex items-center gap-3">
+                                <span class="px-3 py-1 bg-black text-white text-xs font-bold uppercase tracking-wider rounded-full">Web App</span>
+                                <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full">Real-time Location</span>
+                            </div>
+                            
+                            <h3 class="text-3xl sm:text-5xl font-extrabold font-heading text-black tracking-tight">RoadRescue</h3>
+                            
+                            <p class="text-base md:text-lg text-zinc-700 leading-relaxed font-medium">
+                                Emergency mechanic finder prototype built to connect stranded vehicle owners with verified nearby mechanics in real-time based on geolocation.
+                            </p>
+
+                            <div class="space-y-3 pt-2">
+                                <div class="flex items-start gap-3">
+                                    <span class="w-2 h-2 rounded-full bg-amber-500 mt-2 shrink-0"></span>
+                                    <p class="text-sm text-zinc-700"><strong class="text-black">Geolocation Matching:</strong> Connects stranded drivers to available local mechanics seamlessly.</p>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span class="w-2 h-2 rounded-full bg-amber-500 mt-2 shrink-0"></span>
+                                    <p class="text-sm text-zinc-700"><strong class="text-black">Responsive UI:</strong> Mobile-first UI tailored for fast access during road emergencies.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap items-center gap-4 pt-4">
+                                <button onclick="openProjectModal('roadrescue')" class="px-6 py-3 bg-black text-white text-xs md:text-sm font-bold uppercase tracking-wider rounded-full hover:bg-zinc-800 transition-colors cursor-pointer">
+                                    View Full Architecture & Specs &rarr;
+                                </button>
+                                <span class="badge-pill">React.js</span>
+                                <span class="badge-pill">Node.js</span>
+                                <span class="badge-pill">Express.js</span>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5">
+                            <div onclick="openProjectModal('roadrescue')" class="w-full h-80 md:h-96 rounded-2xl overflow-hidden border border-black/10 shadow-lg relative group cursor-pointer">
+                                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://images.unsplash.com/photo-1596752837587-c75150cf66f7?q=80&w=1974&auto=format&fit=crop" alt="RoadRescue Preview">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                                    <div class="text-white">
+                                        <h4 class="text-lg font-bold">RoadRescue Platform</h4>
+                                        <p class="text-xs text-zinc-300">Click to expand technical details</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS & ACHIEVEMENTS SECTION -->
+        <section id="certifications" class="w-full px-6 md:px-[4rem] py-16 reveal-on-scroll">
+            <div class="mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-2">[ Verified Credentials ]</span>
+                <h2 class="text-4xl sm:text-6xl font-extrabold tracking-tighter font-heading text-black">
+                    Certifications & Achievements
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Cert 1 -->
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-xl mb-6">01</div>
+                        <h3 class="text-2xl font-bold font-heading text-black mb-2">Job Ready Cohort – Full Stack & DevOps</h3>
+                        <p class="text-sm font-semibold text-zinc-600 mb-4">Sheryians Coding School (Nov 2025)</p>
+                        <p class="text-xs text-zinc-500 font-mono bg-zinc-100 p-2 rounded-lg inline-block">Cert ID: 90198abf</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-black/10">
+                        <span class="text-xs text-emerald-600 font-bold uppercase tracking-wider">Verified Credential</span>
+                    </div>
+                </div>
+
+                <!-- Cert 2 -->
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-xl mb-6">02</div>
+                        <h3 class="text-2xl font-bold font-heading text-black mb-2">Full Stack Web Development with AI Tools</h3>
+                        <p class="text-sm font-semibold text-zinc-600 mb-4">EY GDS • Edunet & AICTE (2025-26)</p>
+                        <p class="text-xs text-zinc-500 font-mono bg-zinc-100 p-2 rounded-lg inline-block">Cert ID: NG26_55729</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-black/10">
+                        <span class="text-xs text-emerald-600 font-bold uppercase tracking-wider">AICTE Authorized</span>
+                    </div>
+                </div>
+
+                <!-- Cert 3 -->
+                <div class="glass-card p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-xl mb-6">03</div>
+                        <h3 class="text-2xl font-bold font-heading text-black mb-2">AI Skills Passport</h3>
+                        <p class="text-sm font-semibold text-zinc-600 mb-4">EY & Microsoft (2025)</p>
+                        <p class="text-xs text-zinc-500 font-mono bg-zinc-100 p-2 rounded-lg inline-block">Cert ID: 188973</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-black/10">
+                        <span class="text-xs text-emerald-600 font-bold uppercase tracking-wider">Microsoft Certified</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESUME / DOCS SECTION -->
+        <section id="docs" class="w-full px-6 md:px-[4rem] py-16 reveal-on-scroll">
+            <div class="mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-2">[ Official Documentation ]</span>
+                <h2 class="text-4xl sm:text-6xl font-extrabold tracking-tighter font-heading text-black">
+                    Resume & Profile Document
+                </h2>
+            </div>
+
+            <div class="glass-card p-8 md:p-12 rounded-3xl border border-black/10 max-w-5xl mx-auto bg-white shadow-xl">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-8 border-b border-zinc-200 gap-4">
+                    <div>
+                        <h3 class="text-3xl font-extrabold font-heading text-black">ANIKET VIKAS DEDE</h3>
+                        <p class="text-sm font-semibold text-zinc-600">Pune, India • +91 9404502631 • aniketdede12@gmail.com</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button onclick="window.print()" class="px-5 py-2.5 bg-black text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-zinc-800 transition-colors cursor-pointer">
+                            Print / Save PDF
+                        </button>
+                    </div>
+                </div>
+
+                <div class="py-8 space-y-8 text-zinc-800">
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-2">Professional Summary</h4>
+                        <p class="text-sm leading-relaxed">
+                            IT undergraduate (Final Year) with hands-on full-stack development experience via EY GDS – AICTE Next-Gen Employability Internship. Built production-grade B2B platforms using Next.js, React, and Node.js. Strong foundation in DSA, REST APIs, System Design, and DevOps. Seeking Software Developer / Full-Stack Developer roles to deliver impactful, scalable solutions.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-3">Education</h4>
+                            <div class="space-y-3 text-sm">
+                                <div>
+                                    <strong class="text-black block">B.E. Information Technology (2023 – 2027)</strong>
+                                    <span class="text-zinc-600">Trinity College of Engineering and Research, Pune (SPPU) • Final Year (BE)</span>
+                                </div>
+                                <div>
+                                    <strong class="text-black block">Class XII (Science) – 65% (2022)</strong>
+                                    <span class="text-zinc-600">Maharashtra State Board</span>
+                                </div>
+                                <div>
+                                    <strong class="text-black block">Class X – 96.40% (2020)</strong>
+                                    <span class="text-zinc-600">Maharashtra State Board</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-zinc-400 mb-3">Core Technical Skills</h4>
+                            <ul class="text-sm space-y-1.5 text-zinc-700">
+                                <li><strong class="text-black">Languages:</strong> JavaScript (ES6+), Python, SQL, Java</li>
+                                <li><strong class="text-black">Frontend:</strong> React.js, Next.js, Tailwind CSS, Responsive Design</li>
+                                <li><strong class="text-black">Backend:</strong> Node.js, Express.js, Django, REST APIs, JWT Auth</li>
+                                <li><strong class="text-black">Databases:</strong> MongoDB, MySQL, Database Design</li>
+                                <li><strong class="text-black">DevOps & CS:</strong> Git, Docker, Kubernetes, DSA, OOP, System Design</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT & FOOTER SECTION -->
+        <section id="contact" class="w-full bg-black text-white px-6 md:px-[5rem] py-20 mt-20">
+            <div class="max-w-6xl mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-center gap-12 pb-16 border-b border-white/20">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 block mb-2">[ Let's Build Together ]</span>
+                    <h2 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tighter font-heading text-white mb-4">
+                        Get In Touch.
+                    </h2>
+                    <p class="text-zinc-400 text-base md:text-lg max-w-lg">
+                        Open for Software Developer & Full-Stack Developer opportunities, collaborations, or tech discussions.
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+                    <button onclick="openContactModal()" class="px-8 py-4 bg-white text-black font-bold text-base rounded-full hover:bg-zinc-200 transition-colors text-center shadow-lg cursor-pointer">
+                        Send Direct Message &rarr;
+                    </button>
+                    <a href="mailto:aniketdede12@gmail.com" class="px-8 py-4 bg-white/10 text-white font-bold text-base rounded-full hover:bg-white/20 transition-colors text-center border border-white/20">
+                        aniketdede12@gmail.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="max-w-6xl mx-auto pt-10 flex flex-col sm:flex-row justify-between items-center gap-6">
+                <div>
+                    <h3 class="text-lg tracking-tight font-bold">
+                        <span class="text-emerald-400">Aniket</span> Vikas Dede
+                    </h3>
+                    <p class="text-xs text-zinc-500">Full Stack Web Developer • Pune, India</p>
+                </div>
+
+                <div class="flex items-center gap-6 text-sm text-zinc-400">
+                    <a href="https://github.com/aniketdede" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub</a>
+                    <a href="https://www.linkedin.com/in/aniket-dede-a642b0295/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">LinkedIn</a>
+                    <a href="#home" class="hover:text-white transition-colors">Back to Top &uarr;</a>
+                </div>
+
+                <h4 class="font-mono text-xs text-zinc-400 dt">Date & Time Loading...</h4>
+            </div>
+        </section>
     </main>
+
+    <!-- PROJECT MODALS OVERLAY -->
+    <div id="projectModalOverlay" class="modal-overlay" onclick="closeProjectModalOnBg(event)">
+        <div class="modal-content p-8 md:p-12 relative">
+            <button onclick="closeProjectModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-zinc-100 text-zinc-600 hover:bg-black hover:text-white transition-colors font-bold text-xl flex items-center justify-center cursor-pointer">&times;</button>
+            <div id="projectModalBody">
+                <!-- Content injected dynamically via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT FORM MODAL OVERLAY -->
+    <div id="contactModalOverlay" class="modal-overlay" onclick="closeContactModalOnBg(event)">
+        <div class="modal-content p-8 md:p-12 relative max-w-xl">
+            <button onclick="closeContactModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-zinc-100 text-zinc-600 hover:bg-black hover:text-white transition-colors font-bold text-xl flex items-center justify-center cursor-pointer">&times;</button>
+            
+            <div class="mb-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-zinc-400 block mb-1">[ Contact Aniket ]</span>
+                <h3 class="text-3xl font-extrabold font-heading text-black">Send a Message</h3>
+                <p class="text-zinc-600 text-sm mt-1">Fill out the form below or email directly at <strong class="text-black">aniketdede12@gmail.com</strong>.</p>
+            </div>
+
+            <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-1">Your Name *</label>
+                    <input type="text" id="contactName" required placeholder="e.g. Rahul Sharma" class="w-full px-4 py-3 rounded-xl border border-zinc-200 focus:border-black focus:outline-none text-sm transition-colors">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-1">Your Email *</label>
+                    <input type="email" id="contactEmail" required placeholder="e.g. rahul@company.com" class="w-full px-4 py-3 rounded-xl border border-zinc-200 focus:border-black focus:outline-none text-sm transition-colors">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-1">Subject</label>
+                    <input type="text" id="contactSubject" placeholder="e.g. Full-Stack Role / Project Inquiry" class="w-full px-4 py-3 rounded-xl border border-zinc-200 focus:border-black focus:outline-none text-sm transition-colors">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-1">Message *</label>
+                    <textarea id="contactMessage" required rows="4" placeholder="Hello Aniket, I'd like to discuss an opportunity..." class="w-full px-4 py-3 rounded-xl border border-zinc-200 focus:border-black focus:outline-none text-sm transition-colors resize-none"></textarea>
+                </div>
+
+                <div id="contactFormStatus" class="hidden p-3 rounded-xl text-xs font-semibold"></div>
+
+                <div class="pt-2">
+                    <button type="submit" id="contactSubmitBtn" class="w-full py-3.5 bg-black text-white font-bold text-sm uppercase tracking-wider rounded-xl hover:bg-zinc-800 transition-colors shadow cursor-pointer">
+                        Send Message &rarr;
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
     <script>
+        // Project Data for Modals
+        const projectData = {
+            garagenet: {
+                title: "GarageNET",
+                subtitle: "Automotive B2B Operations Suite & SaaS Platform",
+                badge: "B2B SaaS • Production Ready",
+                tech: ["Django", "Python", "Tailwind CSS", "SQLite/PostgreSQL", "JWT Auth", "REST APIs"],
+                description: "GarageNET is a comprehensive B2B SaaS platform engineered for automotive repair garages and service centers. Built with Django and Python, it digitizes workshop workflows, inventory tracking, customer billing, and cross-garage parts discovery.",
+                architecture: [
+                    "Job Card Engine: Dynamic creation, technician assignment, status tracking, and service estimates.",
+                    "Automated Billing Engine: Real-time inventory auto-deduction, audit logging, tax calculation, and bulk Excel data import.",
+                    "GSearch (AI Parts Finder): Intelligent cross-garage inventory search engine that boosted parts sourcing efficiency by 60%.",
+                    "Security: Full JWT authentication, Role-Based Access Control (RBAC), CSRF protection, and server validation."
+                ],
+                metrics: "60% improvement in parts sourcing efficiency | 4 core business modules | 100% production ready"
+            },
+            gitakosh: {
+                title: "GitaKosh",
+                subtitle: "AI-Powered Devotional Learning & Q&A Platform",
+                badge: "AI Web App • Gemini API",
+                tech: ["React.js", "Node.js", "MongoDB Atlas", "Google Gemini AI", "Google OAuth", "JWT"],
+                description: "GitaKosh is an interactive full-stack learning platform designed for studying the Bhagavad Gita. Powered by Google's Gemini AI API, it features a contextual AI assistant capable of answering complex philosophical queries grounded in verse context.",
+                architecture: [
+                    "Data Processing Pipeline: Structured and ingested 700+ verses with translations, commentary, and semantic tags into MongoDB Atlas.",
+                    "AI Chatbot Integration: Direct integration with Google Gemini API using customized prompt engineering for accurate verse retrieval.",
+                    "Gamification Module: Daily learning streaks, chapter quizzes, interactive flashcards, and global leaderboards to maximize retention.",
+                    "Authentication: JWT token management combined with Google OAuth 2.0 single sign-on."
+                ],
+                metrics: "700+ Verses processed & structured | Contextual AI Q&A | Gamified retention loops"
+            },
+            roadrescue: {
+                title: "RoadRescue",
+                subtitle: "Emergency Mechanic Locator Prototype",
+                badge: "Web App • Geolocation",
+                tech: ["React.js", "Node.js", "Express.js", "Geolocation API", "REST APIs"],
+                description: "RoadRescue is a location-aware web prototype designed for vehicle breakdown emergencies. It bridges stranded drivers with verified nearby mechanics in real-time based on live GPS location matching.",
+                architecture: [
+                    "Real-Time Location Matching: Uses browser Geolocation API and spatial distance algorithms to pair stranded drivers with nearby repair units.",
+                    "Emergency Portal: Streamlined, low-latency UI optimized for emergency mobile browser access.",
+                    "Mechanic Verification: Role-based status toggles for mechanics to accept service calls dynamically."
+                ],
+                metrics: "Real-time location pairing | Sub-second dispatch interface | Fully responsive across mobile & desktop"
+            }
+        };
+
+        // Category Filter Function
+        function filterProjects(category, btnElement) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active-filter'));
+            if (btnElement) btnElement.classList.add('active-filter');
+
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (category === 'all' || cardCategory === category) {
+                    card.style.display = 'block';
+                    setTimeout(() => card.style.opacity = '1', 50);
+                } else {
+                    card.style.opacity = '0';
+                    setTimeout(() => card.style.display = 'none', 300);
+                }
+            });
+        }
+
+        // Project Modal Functions
+        function openProjectModal(key) {
+            const data = projectData[key];
+            if (!data) return;
+
+            const modalBody = document.getElementById('projectModalBody');
+            modalBody.innerHTML = `
+                <div class="mb-4">
+                    <span class="px-3 py-1 bg-black text-white text-xs font-bold uppercase tracking-wider rounded-full">${data.badge}</span>
+                </div>
+                <h3 class="text-3xl sm:text-4xl font-extrabold font-heading text-black mb-1">${data.title}</h3>
+                <p class="text-sm font-semibold text-zinc-500 mb-6">${data.subtitle}</p>
+                
+                <p class="text-zinc-700 text-sm md:text-base leading-relaxed mb-6">${data.description}</p>
+                
+                <div class="glass-card p-6 rounded-2xl mb-6 bg-zinc-50">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-black mb-3">System Architecture & Features</h4>
+                    <ul class="space-y-2 text-xs md:text-sm text-zinc-700">
+                        ${data.architecture.map(item => `<li class="flex items-start gap-2"><span class="text-emerald-500 font-bold">•</span> <span>${item}</span></li>`).join('')}
+                    </ul>
+                </div>
+
+                <div class="mb-6">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Key Performance Metrics</h4>
+                    <p class="text-sm font-semibold text-emerald-700 bg-emerald-50 p-3 rounded-xl border border-emerald-200">${data.metrics}</p>
+                </div>
+
+                <div class="mb-8">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">Technologies Used</h4>
+                    <div class="flex flex-wrap gap-2">
+                        ${data.tech.map(t => `<span class="badge-pill">${t}</span>`).join('')}
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <button onclick="closeProjectModal()" class="px-6 py-3 bg-black text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-zinc-800 transition-colors cursor-pointer">
+                        Close Modal
+                    </button>
+                    <a href="https://github.com/aniketdede" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-zinc-200 text-black text-xs font-bold uppercase tracking-wider rounded-full hover:bg-zinc-300 transition-colors inline-block">
+                        View Repository &rarr;
+                    </a>
+                </div>
+            `;
+
+            document.getElementById('projectModalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            document.getElementById('projectModalOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeProjectModalOnBg(e) {
+            if (e.target.id === 'projectModalOverlay') closeProjectModal();
+        }
+
+        // Contact Modal Functions
+        function openContactModal() {
+            document.getElementById('contactModalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModalOverlay').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeContactModalOnBg(e) {
+            if (e.target.id === 'contactModalOverlay') closeContactModal();
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const btn = document.getElementById('contactSubmitBtn');
+            const status = document.getElementById('contactFormStatus');
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const subject = document.getElementById('contactSubject').value || 'Portfolio Inquiry';
+            const message = document.getElementById('contactMessage').value;
+
+            btn.disabled = true;
+            btn.textContent = 'Sending Message...';
+
+            setTimeout(() => {
+                status.classList.remove('hidden', 'bg-red-100', 'text-red-800');
+                status.classList.add('bg-emerald-100', 'text-emerald-800');
+                status.innerHTML = `<strong>Thank you, ${name}!</strong> Your message has been prepared. Opening your email client to send to aniketdede12@gmail.com...`;
+                
+                // Mailto fallback link trigger
+                const mailtoUrl = `mailto:aniketdede12@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\n" + message)}`;
+                window.location.href = mailtoUrl;
+
+                btn.disabled = false;
+                btn.textContent = 'Send Message \u2192';
+                document.getElementById('contactForm').reset();
+
+                setTimeout(() => closeContactModal(), 3000);
+            }, 800);
+        }
+
+        // Native IntersectionObserver Scroll Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                threshold: 0.12,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll, .scale-on-scroll').forEach(el => observer.observe(el));
+
+            // Scroll-Spy Navigation Active Link Observer
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 120;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active-nav');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active-nav');
+                    }
+                });
+            });
+        });
+
+        // Real-Time Clock & Calendar Header/Footer
         function changeTime() {
             var dt = new Date();
-            var str = dt.getHours() % 12 + ":" + dt.getMinutes();
-            dt.getHours() % 12 > 0 ? str += " PM" : str += " AM";
-            document.querySelector(".timing").textContent = str;
+            var hours = dt.getHours();
+            var minutes = dt.getMinutes();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            var str = hours + ":" + minutes + " " + ampm;
+            var timingEl = document.querySelector(".timing");
+            if (timingEl) timingEl.textContent = str;
         }
 
         function changeDateAndTime() {
             var dt2 = new Date();
-            var str = dt2.getDate() + ' / ' + (dt2.getMonth() + 1) + ' / ' + dt2.getFullYear() + "   " + dt2.getHours() % 12 + ":" + dt2.getMinutes();
-            dt2.getHours() % 12 > 0 ? str += " PM" : str += " AM";
-            document.querySelector(".dt").textContent = str;
+            var day = dt2.getDate();
+            var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            var month = monthNames[dt2.getMonth()];
+            var year = dt2.getFullYear();
+            
+            var hours = dt2.getHours();
+            var minutes = dt2.getMinutes();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            
+            var str = day + " " + month + " " + year + " [" + hours + ":" + minutes + " " + ampm + "]";
+            var dtEl = document.querySelector(".dt");
+            if (dtEl) dtEl.textContent = str;
         }
 
+        changeTime();
+        changeDateAndTime();
         setInterval(function () {
             changeTime();
             changeDateAndTime();
-        }, 1000)
+        }, 1000);
     </script>
 </body>
 
