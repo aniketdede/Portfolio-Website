@@ -52,6 +52,7 @@ profile.jpg
 
 # private agents & workspace config files
 .agents/
+.github/
 AGENTS.md
 CLAUDE.md
 CONTEXT.md
