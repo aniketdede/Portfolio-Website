@@ -1,6 +1,6 @@
 "use client";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+import { withBase } from "@/lib/site";
 
 export default function Skills({ activeSkillFilter, onSelectSkill }) {
   const skillCategories = [
@@ -39,7 +39,7 @@ export default function Skills({ activeSkillFilter, onSelectSkill }) {
   return (
     <section id="skills" className="w-full relative px-6 md:px-[4rem] py-20 mt-10">
       <div className="w-full relative rounded-3xl overflow-hidden bg-black text-white p-8 md:p-16 shadow-2xl border border-zinc-800">
-        <img className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none" src={`${basePath}/bgdots.png`} alt="" />
+        <img className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none" src={withBase("/bgdots.webp")} alt="" aria-hidden="true" loading="lazy" />
 
         <div className="relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12 border-b border-white/20 pb-8">
@@ -49,7 +49,7 @@ export default function Skills({ activeSkillFilter, onSelectSkill }) {
                 I Am Great At
               </h2>
               <p className="text-xs text-zinc-400 mt-2">
-                Click any skill tag below to dynamically filter matching projects & experience milestones.
+                Click any skill tag below to filter the featured projects that use it.
               </p>
             </div>
             {activeSkillFilter && (

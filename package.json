@@ -7,11 +7,14 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy:portfolio": "npx cross-env NEXT_PUBLIC_BASE_PATH=/Portfolio-Website next build && node -e \"require('fs').writeFileSync('out/.nojekyll', '')\" && gh-pages --dotfiles -d out -b gh-pages -r https://github.com/aniketdede/Portfolio-Website.git",
-    "deploy:webdev": "npx cross-env NEXT_PUBLIC_BASE_PATH=/WEB-DEVELOPEMENT next build && node -e \"require('fs').writeFileSync('out/.nojekyll', '')\" && gh-pages --dotfiles -d out -b gh-pages -r https://github.com/aniketdede/WEB-DEVELOPEMENT.git",
-    "deploy": "npm run deploy:portfolio && npm run deploy:webdev"
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "e2e": "node scripts/e2e-static.mjs",
+    "e2e:pages": "node scripts/e2e-static.mjs /Portfolio-Website",
+    "deploy:pages": "npx cross-env NEXT_PUBLIC_BASE_PATH=/Portfolio-Website next build && node -e \"require('fs').writeFileSync('out/.nojekyll', '')\" && gh-pages --dotfiles -d out -b gh-pages -r https://github.com/aniketdede/Portfolio-Website.git"
   },
   "dependencies": {
+    "@fontsource-variable/plus-jakarta-sans": "^5.3.0",
+    "@fontsource-variable/space-grotesk": "^5.3.0",
     "next": "16.2.11",
     "react": "19.2.4",
     "react-dom": "19.2.4"
@@ -22,6 +25,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.11",
     "gh-pages": "^6.3.0",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4"
   }
 }

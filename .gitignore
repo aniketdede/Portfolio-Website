@@ -30,6 +30,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
 .env*.local
 
 # vercel
@@ -41,19 +42,3 @@ next-env.d.ts
 
 # scratch test files
 scratch/
-
-# private raw personal photos
-public/DSC00041.JPG
-public/newimg.jpeg
-public/profile.jpg
-DSC00041.JPG
-newimg.jpeg
-profile.jpg
-
-# private agents & workspace config files
-.agents/
-.github/
-AGENTS.md
-CLAUDE.md
-CONTEXT.md
-docs/CONTEXT.md

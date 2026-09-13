@@ -69,13 +69,14 @@ export default function Navbar({ onOpenContact }) {
   ];
 
   return (
-    <nav
+    <header
       className={`fixed top-0 left-0 w-full z-50 px-6 md:px-[4rem] py-4 transition-all duration-300 ${
         scrolled
           ? "bg-white/90 backdrop-blur-md border-b border-black/5 shadow-sm"
           : "bg-white/75 backdrop-blur-sm"
       }`}
     >
+    <nav aria-label="Primary">
       <div className="flex justify-between items-center w-full">
         <Link
           href="#home"
@@ -148,7 +149,9 @@ export default function Navbar({ onOpenContact }) {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 text-zinc-800 hover:text-black transition-colors cursor-pointer"
-            aria-label="Toggle Mobile Menu"
+            aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
           >
             {isMobileMenuOpen ? (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -165,7 +168,7 @@ export default function Navbar({ onOpenContact }) {
 
       {/* MOBILE DRAWER MENU */}
       {isMobileMenuOpen && (
-        <div className="md:hidden pt-4 pb-3 border-t border-zinc-200 mt-3 flex flex-col gap-3">
+        <div id="mobile-navigation" className="md:hidden pt-4 pb-3 border-t border-zinc-200 mt-3 flex flex-col gap-3">
           {navItems.map((item) => {
             const sectionId = item.href.replace("#", "");
             const isActive = activeSection === sectionId;
@@ -197,5 +200,6 @@ export default function Navbar({ onOpenContact }) {
         </div>
       )}
     </nav>
+    </header>
   );
 }

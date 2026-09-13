@@ -1,26 +1,23 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { withBase } from "@/lib/site";
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+// Always show Pune time, regardless of the visitor's own timezone
+const puneTimeFormatter = new Intl.DateTimeFormat("en-US", {
+  timeZone: "Asia/Kolkata",
+  hour: "numeric",
+  minute: "2-digit",
+  hour12: true,
+});
 
 export default function Hero({ onOpenContact }) {
   const [timeStr, setTimeStr] = useState("");
 
   useEffect(() => {
-    const updateTime = () => {
-      const dt = new Date();
-      let hours = dt.getHours();
-      let minutes = dt.getMinutes();
-      const ampm = hours >= 12 ? "PM" : "AM";
-      hours = hours % 12;
-      hours = hours ? hours : 12;
-      minutes = minutes < 10 ? "0" + minutes : minutes;
-      setTimeStr(`${hours}:${minutes} ${ampm}`);
-    };
-
+    const updateTime = () => setTimeStr(puneTimeFormatter.format(new Date()));
     updateTime();
-    const interval = setInterval(updateTime, 1000);
+    const interval = setInterval(updateTime, 30000);
     return () => clearInterval(interval);
   }, []);
 
@@ -40,7 +37,7 @@ export default function Hero({ onOpenContact }) {
         <div className="Rightheadings flex flex-col gap-3 py-2 border-l-2 border-black pl-5 md:pl-6">
           <div className="flex items-center gap-3">
             <h4 className="tracking-tight font-bold text-sm md:text-base">
-              [ <span className="timing text-emerald-600">{timeStr || "06:11 PM"}</span> ]
+              [ <span className="timing text-emerald-600">{timeStr || "--:--"}</span> ]
             </h4>
             <div className="w-16 md:w-24 h-[2px] bg-black" />
             <span className="text-xs uppercase font-bold tracking-wider px-2 py-0.5 bg-zinc-200 rounded">Pune, India</span>
@@ -72,8 +69,9 @@ export default function Hero({ onOpenContact }) {
       <div className="picture w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] mt-6 rounded-3xl overflow-hidden shadow-2xl relative group bg-[#0e0e11] border border-black/10">
         <img
           className="w-full h-full object-cover object-[65%_25%] sm:object-[68%_20%] filter brightness-[1.02] contrast-[1.04] saturate-[1.04] group-hover:scale-103 transition-all duration-700 ease-out"
-          src={`${basePath}/newimg.png`}
-          alt="Aniket Vikas Dede"
+          src={withBase("/newimg.webp")}
+          alt="Aniket Vikas Dede, full stack web developer based in Pune, India"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
         

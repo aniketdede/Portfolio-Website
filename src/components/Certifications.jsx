@@ -15,10 +15,10 @@ export default function Certifications() {
             <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-xl mb-6">01</div>
             <h3 className="text-2xl font-bold font-heading text-black mb-2">Job Ready Cohort – Full Stack & DevOps</h3>
             <p className="text-sm font-semibold text-zinc-600 mb-4">Sheryians Coding School (Nov 2025)</p>
-            <p className="text-xs text-zinc-500 font-mono bg-zinc-100 p-2 rounded-lg inline-block">Cert ID: 90198abf</p>
+            <p className="text-xs text-zinc-500 font-mono bg-zinc-100 p-2 rounded-lg inline-block">Credential ID: 90198abf</p>
           </div>
           <div className="mt-6 pt-4 border-t border-black/10">
-            <span className="text-xs text-emerald-600 font-bold uppercase tracking-wider">Verified Credential</span>
+            <span className="text-xs text-zinc-500 font-bold uppercase tracking-wider">Issued November 2025</span>
           </div>
         </div>
 
@@ -28,10 +28,10 @@ export default function Certifications() {
             <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-xl mb-6">02</div>
             <h3 className="text-2xl font-bold font-heading text-black mb-2">Full Stack Web Development with AI Tools</h3>
             <p className="text-sm font-semibold text-zinc-600 mb-4">EY GDS • Edunet & AICTE (2025-26)</p>
-            <p className="text-xs text-zinc-500 font-mono bg-zinc-100 p-2 rounded-lg inline-block">Cert ID: NG26_55729</p>
+            <p className="text-xs text-zinc-500 font-mono bg-zinc-100 p-2 rounded-lg inline-block">Credential ID: NG26_55729</p>
           </div>
           <div className="mt-6 pt-4 border-t border-black/10">
-            <span className="text-xs text-emerald-600 font-bold uppercase tracking-wider">AICTE Authorized</span>
+            <span className="text-xs text-zinc-500 font-bold uppercase tracking-wider">AICTE-Authorized Programme</span>
           </div>
         </div>
 
@@ -41,10 +41,10 @@ export default function Certifications() {
             <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-bold text-xl mb-6">03</div>
             <h3 className="text-2xl font-bold font-heading text-black mb-2">AI Skills Passport</h3>
             <p className="text-sm font-semibold text-zinc-600 mb-4">EY & Microsoft (2025)</p>
-            <p className="text-xs text-zinc-500 font-mono bg-zinc-100 p-2 rounded-lg inline-block">Cert ID: 188973</p>
+            <p className="text-xs text-zinc-500 font-mono bg-zinc-100 p-2 rounded-lg inline-block">Credential ID: 188973</p>
           </div>
           <div className="mt-6 pt-4 border-t border-black/10">
-            <span className="text-xs text-emerald-600 font-bold uppercase tracking-wider">Microsoft Certified</span>
+            <span className="text-xs text-zinc-500 font-bold uppercase tracking-wider">Issued by EY &amp; Microsoft, 2025</span>
           </div>
         </div>
       </div>

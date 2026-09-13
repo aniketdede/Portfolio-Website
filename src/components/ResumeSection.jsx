@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function ResumeSection() {
   return (
     <section id="docs" className="w-full px-6 md:px-[4rem] py-16">
@@ -17,20 +19,12 @@ export default function ResumeSection() {
             <p className="text-sm font-semibold text-zinc-600">Pune, India • +91 9404502631 • aniketdede12@gmail.com</p>
           </div>
           <div className="flex items-center gap-3">
-            <a
-              href="/Aniket_Vikas_Dede_Resume.md"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/resume"
               className="px-5 py-2.5 bg-black text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-zinc-800 transition-colors inline-block"
             >
-              View Full Resume Spec ↗
-            </a>
-            <button
-              onClick={() => window.print()}
-              className="px-5 py-2.5 bg-zinc-200 text-black text-xs font-bold uppercase tracking-wider rounded-full hover:bg-zinc-300 transition-colors cursor-pointer"
-            >
-              Print / Save PDF
-            </button>
+              View / Print Resume ↗
+            </Link>
           </div>
         </div>
 
@@ -71,6 +65,15 @@ export default function ResumeSection() {
                 <li><strong className="text-black">DevOps & CS:</strong> Git, Docker, Kubernetes, DSA, OOP, System Design</li>
               </ul>
             </div>
+          </div>
+
+          <div className="pt-2">
+            <Link
+              href="/resume"
+              className="text-xs font-bold uppercase tracking-wider text-black underline underline-offset-4 hover:text-zinc-600"
+            >
+              Open the full one-page résumé with projects & certifications →
+            </Link>
           </div>
         </div>
       </div>

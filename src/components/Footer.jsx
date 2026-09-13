@@ -6,25 +6,26 @@ export default function Footer({ onOpenContact }) {
   const [dateStr, setDateStr] = useState("");
 
   useEffect(() => {
+    // Date/time in Pune regardless of visitor timezone
+    const dateFmt = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Asia/Kolkata",
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
+    const timeFmt = new Intl.DateTimeFormat("en-US", {
+      timeZone: "Asia/Kolkata",
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true,
+    });
     const updateDateTime = () => {
-      const dt = new Date();
-      const day = dt.getDate();
-      const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-      const month = monthNames[dt.getMonth()];
-      const year = dt.getFullYear();
-
-      let hours = dt.getHours();
-      let minutes = dt.getMinutes();
-      const ampm = hours >= 12 ? "PM" : "AM";
-      hours = hours % 12;
-      hours = hours ? hours : 12;
-      minutes = minutes < 10 ? "0" + minutes : minutes;
-
-      setDateStr(`${day} ${month} ${year} [${hours}:${minutes} ${ampm}]`);
+      const now = new Date();
+      setDateStr(`${dateFmt.format(now)} [${timeFmt.format(now)} IST]`);
     };
 
     updateDateTime();
-    const interval = setInterval(updateDateTime, 1000);
+    const interval = setInterval(updateDateTime, 30000);
     return () => clearInterval(interval);
   }, []);
 

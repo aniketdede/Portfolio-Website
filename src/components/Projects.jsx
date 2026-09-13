@@ -2,8 +2,7 @@
 
 import { useState, useCallback } from "react";
 import ProjectModal from "./ProjectModal";
-
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+import { withBase } from "@/lib/site";
 
 const projectData = {
   garagenet: {
@@ -11,7 +10,7 @@ const projectData = {
     subtitle: "Automotive B2B Operations Suite & SaaS Platform",
     badge: "B2B SaaS • Production Ready",
     category: "b2b",
-    image: "/GarageNet.png",
+    image: "/GarageNet.webp",
     githubUrl: "https://github.com/aniketdede/GarageNET_Project",
     tech: ["Django", "Python", "Tailwind CSS", "SQLite/PostgreSQL", "JWT Auth", "REST APIs"],
     description: "GarageNET is a comprehensive B2B SaaS platform engineered for automotive repair garages and service centers. Built with Django and Python, it digitizes workshop workflows, inventory tracking, customer billing, and cross-garage parts discovery.",
@@ -33,7 +32,7 @@ const projectData = {
     subtitle: "AI-Powered Devotional Learning & Q&A Platform",
     badge: "AI Web App • Gemini API",
     category: "ai",
-    image: "/Gita.png",
+    image: "/Gita.webp",
     githubUrl: "https://github.com/aniketdede/Gita_Kosh",
     tech: ["React.js", "Node.js", "MongoDB Atlas", "Google Gemini AI", "Google OAuth", "JWT"],
     description: "GitaKosh is an interactive full-stack learning platform designed for studying the Bhagavad Gita. Powered by Google's Gemini AI API, it features a contextual AI assistant capable of answering complex philosophical queries grounded in verse context.",
@@ -55,7 +54,7 @@ const projectData = {
     subtitle: "Emergency Mechanic Locator Prototype",
     badge: "Web App • Geolocation",
     category: "web",
-    image: "/RoadRescue.png",
+    image: "/RoadRescue.webp",
     tech: ["React.js", "Node.js", "Express.js", "Geolocation API", "REST APIs"],
     description: "RoadRescue is a location-aware web prototype designed for vehicle breakdown emergencies. It bridges stranded drivers with verified nearby mechanics in real-time based on live GPS location matching.",
     architecture: [
@@ -72,7 +71,7 @@ const projectData = {
   }
 };
 
-export default function Projects({ activeSkillFilter }) {
+export default function Projects({ activeSkillFilter, onClearSkill }) {
   const [activeFilter, setActiveFilter] = useState("all");
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -82,9 +81,11 @@ export default function Projects({ activeSkillFilter }) {
 
   const filteredProjects = Object.entries(projectData).filter(([_, proj]) => {
     if (activeSkillFilter) {
-      const matchSkill = proj.tech.some(
-        (t) => t.toLowerCase().includes(activeSkillFilter.toLowerCase()) || activeSkillFilter.toLowerCase().includes(t.toLowerCase())
-      );
+      const needle = activeSkillFilter.toLowerCase();
+      const matchSkill = proj.tech.some((t) => {
+        const tag = t.toLowerCase();
+        return tag.includes(needle) || needle.includes(tag);
+      });
       if (!matchSkill) return false;
     }
     if (activeFilter === "all") return true;
@@ -101,7 +102,7 @@ export default function Projects({ activeSkillFilter }) {
           <h1 className="text-5xl sm:text-7xl md:text-[7rem] tracking-tight font-extrabold font-heading text-black">
             Projects
           </h1>
-          <img className="w-16 md:w-28 object-contain" src={`${basePath}/arrow.png`} alt="Arrow" />
+          <img className="w-16 md:w-28 object-contain" src={withBase("/arrow.png")} alt="" aria-hidden="true" loading="lazy" />
           <h1 className="text-5xl sm:text-7xl md:text-[7rem] tracking-tight font-extrabold font-heading text-zinc-400">
             Showcase
           </h1>
@@ -109,8 +110,16 @@ export default function Projects({ activeSkillFilter }) {
       </div>
 
       {activeSkillFilter && (
-        <div className="mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold flex justify-between items-center">
+        <div className="mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold flex justify-between items-center gap-3">
           <span>Filtering projects utilizing skill: <strong>{activeSkillFilter}</strong></span>
+          {onClearSkill && (
+            <button
+              onClick={() => onClearSkill(null)}
+              className="shrink-0 px-3 py-1.5 bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-emerald-700 transition-colors cursor-pointer"
+            >
+              Clear ×
+            </button>
+          )}
         </div>
       )}
 
@@ -143,6 +152,30 @@ export default function Projects({ activeSkillFilter }) {
       </div>
 
       {/* PROJECTS LIST */}
+      {filteredProjects.length === 0 ? (
+        <div className="glass-card p-10 md:p-16 rounded-3xl text-center">
+          <div className="text-4xl mb-4" aria-hidden="true">🔍</div>
+          <h3 className="text-xl font-bold font-heading text-black mb-2">
+            No featured projects use {activeSkillFilter ? `“${activeSkillFilter}”` : "this filter"} yet
+          </h3>
+          <p className="text-sm text-zinc-600 mb-6 max-w-md mx-auto">
+            {activeSkillFilter
+              ? "That skill is still part of my toolkit — it shows up in other work and learning. Clear the filter to browse all projects."
+              : "Try a different category filter."}
+          </p>
+          {activeSkillFilter && onClearSkill && (
+            <button
+              onClick={() => {
+                onClearSkill(null);
+                setActiveFilter("all");
+              }}
+              className="px-6 py-3 bg-black text-white text-xs font-bold uppercase tracking-wider rounded-full hover:bg-zinc-800 transition-colors cursor-pointer"
+            >
+              Clear Filters
+            </button>
+          )}
+        </div>
+      ) : (
       <div className="space-y-16">
         {filteredProjects.map(([key, project]) => (
           <div
@@ -221,8 +254,9 @@ export default function Projects({ activeSkillFilter }) {
                 >
                   <img
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    src={`${basePath}${project.image}`}
-                    alt={project.title}
+                    src={withBase(project.image)}
+                    alt={`${project.title} dashboard preview`}
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
                     <div className="text-white">
@@ -236,6 +270,7 @@ export default function Projects({ activeSkillFilter }) {
           </div>
         ))}
       </div>
+      )}
 
       {/* PROJECT MODAL */}
       <ProjectModal project={selectedProject} onClose={handleCloseProjectModal} />

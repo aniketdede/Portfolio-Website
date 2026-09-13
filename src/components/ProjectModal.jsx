@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { siteConfig, withBase } from "@/lib/site";
 
 export default function ProjectModal({ project, onClose }) {
   const [activeTab, setActiveTab] = useState("architecture");
@@ -27,11 +28,17 @@ export default function ProjectModal({ project, onClose }) {
   return (
     <div
       className="modal-overlay active p-4 sm:p-6"
+      role="presentation"
       onClick={(e) => {
-        if (e.target.classList.contains("modal-overlay")) onClose();
+        if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="modal-content p-6 sm:p-8 relative flex flex-col h-[85vh] max-h-[85vh] overflow-hidden shadow-2xl rounded-3xl bg-white border border-zinc-200 w-full max-w-3xl">
+      <div
+        className="modal-content p-6 sm:p-8 relative flex flex-col h-[85vh] max-h-[85vh] overflow-hidden shadow-2xl rounded-3xl bg-white border border-zinc-200 w-full max-w-3xl"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="project-modal-title"
+      >
         
         {/* ACCESSIBLE STICKY HEADER WITH CLOSE BUTTON */}
         <div className="flex justify-between items-start pb-4 border-b border-zinc-100 bg-white shrink-0">
@@ -39,7 +46,7 @@ export default function ProjectModal({ project, onClose }) {
             <span className="px-3 py-1 bg-black text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider rounded-full inline-block mb-2">
               {project.badge}
             </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold font-heading text-black leading-tight">
+            <h3 id="project-modal-title" className="text-2xl sm:text-3xl font-extrabold font-heading text-black leading-tight">
               {project.title}
             </h3>
             <p className="text-xs sm:text-sm font-semibold text-zinc-500">{project.subtitle}</p>
@@ -89,8 +96,9 @@ export default function ProjectModal({ project, onClose }) {
           {project.image && (
             <div className="w-full h-44 sm:h-60 rounded-2xl overflow-hidden border border-zinc-200 shadow-sm shrink-0">
               <img
-                src={project.image}
-                alt={project.title}
+                src={withBase(project.image)}
+                alt={`${project.title} dashboard preview`}
+                loading="lazy"
                 className="w-full h-full object-cover object-top"
               />
             </div>
@@ -174,12 +182,12 @@ export default function ProjectModal({ project, onClose }) {
             Close Specs
           </button>
           <a
-            href="https://github.com/aniketdede"
+            href={project.githubUrl || siteConfig.github}
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2.5 sm:px-6 sm:py-3 bg-zinc-200 text-black text-xs font-bold uppercase tracking-wider rounded-full hover:bg-zinc-300 transition-colors inline-block"
           >
-            View Repository &rarr;
+            {project.githubUrl ? "View Repository" : "View GitHub Profile"} &rarr;
           </a>
         </div>
 

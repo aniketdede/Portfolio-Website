@@ -41,7 +41,7 @@ export default function Home() {
       </ScrollReveal>
 
       <ScrollReveal>
-        <Projects activeSkillFilter={activeSkillFilter} />
+        <Projects activeSkillFilter={activeSkillFilter} onClearSkill={setActiveSkillFilter} />
       </ScrollReveal>
 
       <ScrollReveal>

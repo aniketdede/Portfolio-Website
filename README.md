@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Aniket Dede — Portfolio Website
 
-## Getting Started
+Personal portfolio for **Aniket Vikas Dede**, Full Stack Web Developer. Built with
+**Next.js 16 (App Router, static export) · React 19 · Tailwind CSS v4** and designed
+to deploy anywhere static files can be hosted (GitHub Pages or a custom domain/Vercel).
 
-First, run the development server:
+## Features
+
+- Static HTML export (`output: 'export'`) — no server required
+- Sections: Hero, About, Experience & Education, Projects (filterable, with detail modals),
+  Skills (click-to-filter projects), Certifications, Résumé, Contact
+- Dedicated printable résumé page at [`/resume`](src/app/resume/page.js) with A4 print styles
+- Contact form delivered by [Web3Forms](https://web3forms.com), with an honest
+  `mailto:` fallback when no key is configured
+- Optimized WebP imagery, OG share card, sitemap, robots, web manifest & JSON-LD
+- Accessible dialogs (Esc to close, focus management, ARIA roles) and reduced-motion support
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # then fill in the values (see below)
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Configuration (build-time env vars)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_WEB3FORMS_KEY` | Public Web3Forms access key so the contact form delivers to your Gmail. Without it, the form opens the visitor's email app via `mailto:`. |
+| `NEXT_PUBLIC_BASE_PATH` | Sub-path for GitHub Pages project sites, e.g. `/Portfolio-Website`. Empty for apex/custom domains. |
+| `NEXT_PUBLIC_SITE_URL` | Canonical URL (Open Graph, sitemap, robots). Defaults to `https://aniketdede.github.io<basePath>`. |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+See [`.env.example`](.env.example).
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev` — local development
+- `npm run build` — production static export into `out/`
+- `npm run lint` — ESLint
+- `npm run optimize-images` — re-encodes PNG sources in [`assets/`](assets) to WebP in
+  [`public/`](public) and regenerates `og-image.jpg` (requires the `sharp` dev dependency)
+- `npm run deploy:pages` — build with the GitHub Pages base path and publish `out/`
+  to the `gh-pages` branch
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Deployment targets
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **GitHub Pages (project site):** `NEXT_PUBLIC_BASE_PATH=/Portfolio-Website npm run build`
+  (or use `npm run deploy:pages`), then serve the `out/` directory.
+- **Custom domain / Vercel:** build with no `NEXT_PUBLIC_BASE_PATH` and set
+  `NEXT_PUBLIC_SITE_URL=https://aniketdede.dev`.
 
-## Deploy on Vercel
+## Project structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+assets/     High-res source images (not web-served)
+public/     Served assets: optimized WebP, icons, OG card
+scripts/    Image optimization pipeline
+src/app/    Pages (/ and /resume), metadata, sitemap/robots/manifest, global styles
+src/components/  Section components and modals
+src/lib/    Central site config (src/lib/site.js)
+docs/       Résumé source (Markdown) and architecture/ADR notes
+```
