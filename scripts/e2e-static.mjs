@@ -5,10 +5,10 @@
 //
 // Usage:
 //   node scripts/e2e-static.mjs [basePath]      e.g. /Portfolio-Website
-import { spawn } from "node:child_process";
-import { readdir, mkdir, symlink, rm } from "node:fs/promises";
-import { join, dirname, resolve } from "node:path";
-import { tmpdir } from "node:os";
+import { createServer } from "node:http";
+import { readdir, readFile } from "node:fs/promises";
+import { join, resolve, normalize } from "node:path";
+import { existsSync, statSync } from "node:fs";
 
 const basePath = (process.argv[2] || "").replace(/\/$/, "");
 const outDir = resolve("out");
@@ -16,6 +16,7 @@ const port = 8800 + Math.floor(Math.random() * 200);
 const origin = `http://127.0.0.1:${port}`;
 
 let failures = 0;
+let httpServer = null;
 const fail = (msg) => {
   failures++;
   console.error("  ✗", msg);
@@ -36,26 +37,52 @@ const walk = async (dir) => {
 const textLike = /\.(html?|css|js|txt|xml|webmanifest|json|svg|ico)$/i;
 
 async function main() {
-  // ---- server setup: for a basePath, expose out/ under that path via a symlink ----
-  let serveDir = outDir;
-  let tmpServe = null;
-  if (basePath) {
-    tmpServe = join(tmpdir(), `portfolio-e2e-${process.pid}`);
-    await rm(tmpServe, { recursive: true, force: true });
-    await mkdir(dirname(join(tmpServe, basePath)), { recursive: true });
-    await symlink(outDir, join(tmpServe, basePath), "dir");
-    serveDir = tmpServe;
-  }
-  const server = spawn("python3", ["-m", "http.server", String(port), "--bind", "127.0.0.1"], {
-    cwd: serveDir,
-    stdio: "ignore",
+  // ---- in-process strict static server: mirrors GitHub Pages with .nojekyll
+  // (directory index.html served for trailing-slash URLs; no extensionless magic;
+  // the basePath is mapped to out/, anything outside it 404s). ----
+  const types = {
+    ".html": "text/html", ".css": "text/css", ".js": "text/javascript",
+    ".json": "application/json", ".webmanifest": "application/manifest+json",
+    ".txt": "text/plain", ".xml": "application/xml", ".svg": "image/svg+xml",
+    ".webp": "image/webp", ".png": "image/png", ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg", ".ico": "image/x-icon", ".woff2": "font/woff2",
+  };
+  const serve = (req, res) => {
+    let urlPath = decodeURIComponent(req.url.split("?")[0]);
+    if (basePath) {
+      if (!urlPath.startsWith(basePath + "/") && urlPath !== basePath) {
+        res.writeHead(404).end("not found");
+        return;
+      }
+      urlPath = urlPath.slice(basePath.length) || "/";
+    }
+    let filePath = join(outDir, normalize(urlPath));
+    if (!filePath.startsWith(outDir)) {
+      res.writeHead(403).end("forbidden");
+      return;
+    }
+    if (existsSync(filePath) && statSync(filePath).isDirectory()) {
+      filePath = join(filePath, "index.html");
+    }
+    if (!existsSync(filePath)) {
+      res.writeHead(404).end("not found");
+      return;
+    }
+    const ext = filePath.slice(filePath.lastIndexOf("."));
+    readFile(filePath).then((buf) => {
+      res.writeHead(200, { "content-type": types[ext] || "application/octet-stream" });
+      res.end(buf);
+    }).catch(() => res.writeHead(500).end("err"));
+  };
+
+  await new Promise((resolveServer) => {
+    httpServer = createServer(serve);
+    httpServer.listen(port, "127.0.0.1", resolveServer);
   });
-  server.on("error", (e) => fail(`test server failed to start: ${e.message}`));
-  await new Promise((r) => setTimeout(r, 1200));
   const probe = await fetch(origin + basePath + "/").catch(() => null);
   if (!probe || probe.status >= 400) {
     fail(`test server not serving ${origin}${basePath}/ (status ${probe?.status})`);
-    server.kill("SIGKILL");
+    httpServer?.close();
     process.exit(1);
   }
 
@@ -91,7 +118,9 @@ async function main() {
       const rel = page.slice(outDir.length).replace(/\\/g, "/");
       const urlPath =
         basePath + (rel.endsWith("/index.html") ? rel.slice(0, -10) || "/" : rel.replace(/\.html$/, "/"));
-      const content = await (await fetch(origin + urlPath)).text();
+      let content = await (await fetch(origin + urlPath)).text();
+      // resource hints are optional and don't need to return content - don't crawl them
+      content = content.replace(/<link\b[^>]*rel=["'](?:preconnect|dns-prefetch|prefetch)["'][^>]*>/gi, "");
       if (!content || content.length < 1000) fail(`page ${urlPath} looks empty (${content?.length} bytes)`);
       idsByPage.set(urlPath, [...content.matchAll(/\sid=["']([^"']+)["']/g)].map((m) => m[1]));
 
@@ -206,9 +235,7 @@ async function main() {
     console.log(`\n${failures === 0 ? "✅ ALL CHECKS PASSED" : `❌ ${failures} FAILURE(S)`} — ${fetched.size} unique requests\n`);
     process.exit(failures === 0 ? 0 : 1);
   } finally {
-    server.kill("SIGKILL");
-    if (tmpServe) await rm(tmpServe, { recursive: true, force: true });
-    await new Promise((r) => setTimeout(r, 300));
+    await new Promise((r) => httpServer?.close(r));
   }
 }
 
